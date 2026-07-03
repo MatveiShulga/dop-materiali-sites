@@ -16,13 +16,6 @@
   const esc = (s) =>
     String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-  const plural = (n, one, few, many) => {
-    const m10 = n % 10, m100 = n % 100;
-    if (m10 === 1 && m100 !== 11) return one;
-    if (m10 >= 2 && m10 <= 4 && (m100 < 10 || m100 >= 20)) return few;
-    return many;
-  };
-
   function icFor(kind) {
     if (kind === "video") return I.vid;
     if (kind === "doc") return I.doc;
@@ -42,17 +35,6 @@
     if (!assets || !assets.length) return "";
     const h = head ? `<p class="mini-label">${esc(head)}</p>` : "";
     return `<div class="files">${h}${assets.map(fileRow).join("")}</div>`;
-  }
-
-  function kitList(c) {
-    const vids = c.recreate.attachments.filter((a) => a.kind === "video").length;
-    const g = c.gen.length;
-    return [
-      "Промпт пересборки проекта",
-      `${vids} ${plural(vids, "видео", "видео", "видео")} для hero-фона`,
-      `${g} ${plural(g, "промпт", "промпта", "промптов")} для генерации фото и видео`,
-      "Все вложения и готовые результаты",
-    ];
   }
 
   function promptBlock(item) {
@@ -83,7 +65,6 @@
     rs.setProperty("--accent-2", c.accent2);
 
     const prompts = c.gen.map(promptBlock).join("");
-    const kit = kitList(c).map((k) => `<li>${esc(k)}</li>`).join("");
     const recreateFiles = [c.recreate.prompt].concat(c.recreate.attachments);
     const steps = c.recreate.steps.map((s) => `<li>${esc(s)}</li>`).join("");
 
@@ -95,11 +76,6 @@
             <p class="rail-kicker">${esc(c.ru)}</p>
             <h1 class="rail-title">${esc(c.name)}</h1>
             <p class="rail-blurb">${esc(c.blurb)}</p>
-
-            <div class="rail-kit">
-              <p class="mini-label">В наборе</p>
-              <ul class="kit">${kit}</ul>
-            </div>
 
             <a class="btn-archive" href="${c.archive.href}" download>
               ${I.dl}<span>Скачать архив · ${esc(c.archive.size)}</span>
@@ -127,7 +103,6 @@
                 <p class="mini-label">Генерация исходников</p>
                 <h2>Промпты для фото и видео</h2>
               </div>
-              <p class="block-note">Каждый промпт вставляй в нейросеть и прикладывай указанное вложение. Готовые результаты тоже можно скачать.</p>
               <div class="prompts">${prompts}</div>
             </section>
           </div>
