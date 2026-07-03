@@ -110,10 +110,6 @@
           <div class="content">
             <figure class="media">
               <img src="${c.preview}" alt="Превью: ${esc(c.name)}" loading="eager" decoding="async" fetchpriority="high" />
-              <figcaption class="media-cap">
-                <span class="mini-label">Готовый результат</span>
-                <span class="media-cap-name">${esc(c.name)}</span>
-              </figcaption>
             </figure>
 
             <section class="block">
