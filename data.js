@@ -25,7 +25,8 @@ window.SITE_DATA = {
     ru: "Кейс 1 · нейро-портрет «kernel»",
     accent: "#2f93ad",
     accent2: "#7fcfe0",
-    preview: BASE + "site1-photo-main.jpg",
+    preview: BASE + "site1-preview.webp",
+    lqip: "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAwCdASocABAAPulgq00pJaQiMAgBIB0JZQAAW+u2OLL0XqIA8BdAAP7zdS2dXnXjRkNO8zy2wpph8cUunyAF7Kko4dx5n5GJ7g7ODZIufRxeHh8XMWpt9LOZu9CAAAA=",
     blurb: "Светлый hero-экран: портрет в CRT-шлеме, который поворачивает голову вслед за курсором. Видео не проигрывается само — оно «скрабится» позицией мыши слева-направо.",
 
     archive: {
@@ -126,7 +127,8 @@ The motion should feel smooth, subtle and realistic, like a person calmly lookin
     ru: "Кейс 2 · кемпинг «Emberline»",
     accent: "#c8663a",
     accent2: "#e79a63",
-    preview: BASE + "site2-photo-day.jpg",
+    preview: BASE + "site2-preview.webp",
+    lqip: "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADQBACdASocABAAPulgqE0pJaOiMAgBIB0JYgCdMoADSoZXwu3XlTm9qqKXfA86AAD+5x/o3176Y/7/R1GT1Aj0X/5vbP0EiagdvlBo2vUQ3l7qQpvoQEwYPdhiO1bWHSRD/iOqxXfbQnZErO8xVbcTopoxAlWooYlouHbGpa/fyGoVDi55R1XZgcWVDQyEYOxDYAAA",
     blurb: "Кинематографичный кемпинг с переключением день/ночь: два видео-фона плавно перетекают друг в друга по одному клику. Один и тот же кадр — светлая и тёмная тема.",
 
     archive: {

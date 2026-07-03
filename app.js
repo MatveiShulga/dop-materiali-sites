@@ -84,7 +84,7 @@
           </aside>
 
           <div class="content">
-            <figure class="media">
+            <figure class="media" style="background-image:url('${c.lqip}')">
               <img src="${c.preview}" alt="Превью: ${esc(c.name)}" loading="eager" decoding="async" fetchpriority="high" />
             </figure>
 
@@ -111,6 +111,14 @@
       </section>`;
 
     bindCopy();
+
+    // fade the hero in once it's decoded (LQIP shows instantly underneath)
+    const hero = root.querySelector(".media img");
+    if (hero) {
+      if (hero.complete && hero.naturalWidth) hero.classList.add("loaded");
+      else hero.addEventListener("load", () => hero.classList.add("loaded"), { once: true });
+    }
+
     Array.from(tabsWrap.querySelectorAll(".tab")).forEach((t) =>
       t.classList.toggle("active", t.dataset.tab === key)
     );
